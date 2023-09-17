@@ -1,0 +1,28 @@
+name: Push Docker Image to Docker Hub
+
+on:
+  push:
+    branches:
+      - main # You can customize this to match your main branch name
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        
+      - name: Build and tag Docker image
+        run: |
+          docker build -t your-docker-username/your-repo-name:latest .
+          docker tag your-docker-username/your-repo-name:latest your-docker-username/your-repo-name:${{ github.sha }}
+        
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push your-docker-username/your-repo-name:latest
+          docker push your-docker-username/your-repo-name:${{ github.sha }}
+
