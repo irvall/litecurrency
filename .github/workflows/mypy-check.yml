@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: pip install mypy
 
-    - name: Install MyPy deps
-      run: mypy --install-types -r requirements.txt
-
     - name: Run MyPy
       run: mypy .
 
