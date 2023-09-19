@@ -19,10 +19,10 @@ jobs:
         python-version: 3.11  
 
     - name: Install dependencies
-      run: pip install mypy && mypy --install-types
+      run: pip install mypy
 
     - name: Run MyPy
-      run: mypy .
+      run: mypy . --install-types
 
     - name: Check for MyPy errors
       run: |
