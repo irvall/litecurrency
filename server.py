@@ -6,7 +6,8 @@ from typing import Dict, List
 from starlette import status
 from requests import get
 
-CURRENCY_API_URI = "https://api.currencyapi.com/v3"
+CURRENCY_API_VERSION = "v3"
+CURRENCY_API_URI = "https://api.currencyapi.com"
 CURRENCIES = "currencies"
 LATEST = "latest"
 
@@ -52,7 +53,7 @@ def fetch_response(endpoint: str, api_key=Security(X_API_KEY)):
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                             detail=f"Unsupported endpoint '/{endpoint}'")
     response_model = ENDPOINTS[endpoint]
-    request_url = f"{CURRENCY_API_URI}/{endpoint}"
+    request_url = f"{CURRENCY_API_URI}/{CURRENCY_API_VERSION{endpoint}"
     response = get(request_url, headers={'Accept': 'application/json', 'apikey': api_key})
     if response.status_code == status.HTTP_200_OK:
         response_json = response.json()
