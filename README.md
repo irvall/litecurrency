@@ -4,7 +4,7 @@ A small currency API written in typed Python using FastAPI and the external API 
 ## Usage
 
 ### Local test
-Execute `./runner` in the command line in a POSIX-compliant shell (default on Linux/Mac. Sorry, Windows folks). This will build a Docker image (litecurrency) that runs locally using `uvicorn` server that runs on http://localhost:8000.
+Execute `./runner` in the command line in a POSIX-compliant shell (default on Linux/Mac. Or using WSL2 on Windows). This will build a Docker image (litecurrency) that runs locally using `uvicorn` server that runs on http://localhost:8000.
 
 To easily use the API afterwards, go to http://localhost:8000/docs -> Authorize with a valid CurrencyAPI key, and use the two endpoints provided.
 
