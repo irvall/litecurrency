@@ -17,7 +17,7 @@ With Python installed in a shell environment, run:
 
 `pip install -r requirements.txt && uvicorn server:app --reload`
 
-This should start a `uvicorn` server on http://localhost:8000/docs
+This should start a `uvicorn` server on http://localhost:8000
 
 ### Local Docker build
 With [Docker](https://docs.docker.com/get-docker/) installed and running, execute `./docker-run` in the command line in a POSIX-compliant shell (default on Linux/Mac. Or using WSL2 on Windows). This will build a Docker image (litecurrency) that runs locally using `uvicorn` server that runs on http://localhost:8000.
